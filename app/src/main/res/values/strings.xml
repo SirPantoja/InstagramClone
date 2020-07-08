@@ -3,4 +3,14 @@
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="login">Login</string>
+    <string name="description">Description...</string>
+    <string name="take_picture">TAKE PICTURE</string>
+    <string name="submit">SUBMIT</string>
+    <string name="image_to_post">image to post</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="post_username">Post username</string>
+    <string name="post_description">Post description</string>
+    <string name="image_for_post">Image for post</string>
+    <string name="sign_up">Sign up</string>
 </resources>
