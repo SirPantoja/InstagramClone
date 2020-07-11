@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
@@ -50,20 +52,27 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
         private TextView tvUsername;
         private TextView tvPostDescription;
+        private TextView tvCreatedAt;
         private ImageView ivPostImage;
+        private ImageView ivProfilePic;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivPostImage = itemView.findViewById(R.id.ivPostImage);
+            ivProfilePic = itemView.findViewById(R.id.ivProfilePic);
             tvPostDescription = itemView.findViewById(R.id.tvPostDescription);
+            tvCreatedAt = itemView.findViewById(R.id.tvCreatedAt);
         }
 
         public void bind(final Post post) {
             // Bind the post data to the view elements
             tvPostDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
+            tvCreatedAt.setText("Posted on " + post.getCreatedAt().toString());
             Glide.with(context).load(post.getImage().getUrl()).into(ivPostImage);
+            Log.i(TAG, post.getProfilePic().getUrl());
+            Glide.with(context).load(post.getProfilePic().getUrl()).into(ivProfilePic);
 
             // Set on click listener to the image to go to details
             ivPostImage.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +85,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                     intent.putExtra("description", post.getDescription());
                     intent.putExtra("image", post.getImage().getUrl());
                     intent.putExtra("createdAt", post.getCreatedAt().toString());
+                    intent.putExtra("id", post.getObjectId());
+                    intent.putExtra("post", Parcels.wrap(post));
                     context.startActivity(intent);
                 }
             });

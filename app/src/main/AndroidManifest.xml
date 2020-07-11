@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PostDetailsActivity"></activity>
+        <activity android:name=".PostDetailsActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -25,7 +27,8 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -14,4 +14,7 @@
     <string name="image_for_post">Image for post</string>
     <string name="sign_up">Sign up</string>
     <string name="todo">PostDetailsImage</string>
+    <string name="profile_pic">Profile Pic</string>
+    <string name="logout">Logout</string>
+    <string name="add_a_comment">Add a comment!</string>
 </resources>

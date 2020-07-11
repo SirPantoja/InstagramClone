@@ -35,16 +35,16 @@
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ivInstagramLogo"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/username"
-        android:inputType="textPersonName"
-        android:autofillHints="" />
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btnSignUp"
@@ -56,4 +56,14 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/sign_up" />
+
+    <ImageView
+        android:id="@+id/ivInstagramLogo"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="0dp"
+        android:src="@drawable/instagram" />
 </RelativeLayout>

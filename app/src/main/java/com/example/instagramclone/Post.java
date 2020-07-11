@@ -5,6 +5,11 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import org.parceler.Parcel;
+
+import java.util.Date;
+
+@Parcel(analyze = {Post.class})
 @ParseClassName("Post")
 public class Post extends ParseObject {
 
@@ -35,5 +40,13 @@ public class Post extends ParseObject {
 
     public void setUser(ParseUser user) {
         put(KEY_USER, user);
+    }
+
+    public ParseFile getProfilePic() {
+        return getParseUser(KEY_USER).getParseFile(KEY_IMAGE);
+    }
+
+    public void setProfilePic(ParseFile parseFile) {
+        getParseUser(KEY_USER).put(KEY_IMAGE, parseFile);
     }
 }

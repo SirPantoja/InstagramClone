@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.instagramclone.MainActivity;
@@ -47,6 +48,7 @@ public class ComposeFragment extends Fragment {
     private ImageView ivPostImage;
     private File photoFile;
     private String photoFileName = "photo.jpg";
+    private ProgressBar pbLoading;
 
     public ComposeFragment() {
         // Required empty public constructor
@@ -70,6 +72,7 @@ public class ComposeFragment extends Fragment {
         btnTakePic = view.findViewById(R.id.btnTakePic);
         ivPostImage = view.findViewById(R.id.ivPostImage);
         btnSubmit = view.findViewById(R.id.btnSubmit);
+        pbLoading = view.findViewById(R.id.pbLoading);
 
         btnTakePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,6 +156,7 @@ public class ComposeFragment extends Fragment {
         post.setDescription(description);
         post.setImage(new ParseFile(photoFile));
         post.setUser(currentUser);
+        pbLoading.setVisibility(ProgressBar.VISIBLE);
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -163,6 +167,7 @@ public class ComposeFragment extends Fragment {
                 Log.i(TAG, "Post was saved correctly");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+                pbLoading.setVisibility(ProgressBar.INVISIBLE);
             }
         });
     }

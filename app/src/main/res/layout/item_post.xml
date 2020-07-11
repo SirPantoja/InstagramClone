@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/cardview_dark_background"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/ivProfilePic"
         android:text="@string/post_username"
+        android:textColor="#FFFFFF"
+        android:textSize="21sp"
         tools:layout_editor_absoluteX="56dp"
         tools:layout_editor_absoluteY="32dp" />
 
@@ -21,18 +26,57 @@
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_margin="10dp"
+        android:layout_below="@+id/tvUsername"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
         android:clickable="true"
         android:contentDescription="@string/image_for_post"
+        android:focusable="true"
         android:scaleType="centerCrop"
+        android:background="#FFFFFF"
+        android:padding="1dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvPostDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ivPostImage"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/post_description" />
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/tvCreatedAt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPostDescription"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="10dp"
+        tools:text="Created At" />
+
+    <ImageView
+        android:id="@+id/ivProfilePic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/ivPostImage"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/profile_pic"
+        tools:srcCompat="@tools:sample/avatars" />
+
+</RelativeLayout>
